@@ -3,10 +3,11 @@
 <li>추후 새롭게 배우는 내용에 대하여 계속수정 예정입니다.</li>
 
 ## 목표
-<li>간단한 로그인 화면 구현할 수 있다.</li>
+<li>로그인 화면 구현</li>
 
 ## 일정
 <li>2022. 4. 19.(화) ~ </li>
 
 ## 구현내용
 ![image](https://user-images.githubusercontent.com/102460056/163950235-5d72a9ef-2eac-4a91-8bfd-fef7223dcae8.png)
+![image](https://user-images.githubusercontent.com/102460056/163950840-355aa7df-e3cf-4714-9c65-de70c25dd8bd.png)
