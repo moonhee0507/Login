@@ -228,51 +228,58 @@
       margin-bottom: 10px;
     }
 
-    .button > img {
+/* 이미지 스프라이트 기법으로 이미지를 적용하였습니다 */
+
+    .button > .button::before {
+      float: left;
+      display: block;
+      content: "";
       width: 28px;
       height: 28px;
-      top: 0;
-      left: 0;
+      position: relative;
+      left: 11px;
+      top: 10px;
+      background-image: url(images/sprites.png);
     }
 
     .button.google {
       border: 1px solid #767676;
       box-sizing: border-box;
       border-radius: 5px;
-      background-image: url(/images/google-logo.png);
-      background-repeat: no-repeat;
-      background-size: 28px 28px;
-      background-position: left 11px bottom 10px;
+    }
+
+    .button.google::before {
+      background-position: -10px -10px;
     }
 
     .button.facebook {
       border: 1px solid #2D9CDB;
       box-sizing: border-box;
       border-radius: 5px;
-      background-image: url(/images/facebook-logo.png);
-      background-repeat: no-repeat;
-      background-size: 28px 28px;
-      background-position: left 11px bottom 10px;
+    }
+
+    .button.facebook::before {
+      background-position: -58px -10px;
     }
 
     .button.naver {
       border: 1px solid #00BF18;
       box-sizing: border-box;
       border-radius: 5px;
-      background-image: url(/images/naver-logo.png);
-      background-repeat: no-repeat;
-      background-size: 28px 28px;
-      background-position: left 11px bottom 10px;
+    }
+
+    .button.naver::before {
+      background-position: -10px -58px;
     }
 
     .button.kakao {
       border: 1px solid #F2C94C;
       box-sizing: border-box;
       border-radius: 5px;
-      background-image: url(/images/kakao-logo.png);
-      background-repeat: no-repeat;
-      background-size: 28px 28px;
-      background-position: left 11px bottom 10px;
+    }
+
+    .button.kakao::before {
+      background-position: -58px -58px;
     }
   </style>
 </head>
@@ -308,10 +315,10 @@
         </div>
 
         <div class="button">
-          <button class="button google">구글 계정으로 로그인</button>
-          <button class="button facebook">페이스북 계정으로 로그인</button>
-          <button class="button naver">네이버 계정으로 로그인</button>
-          <button class="button kakao">카카오톡 계정으로 로그인</button>
+          <button type="button" class="button google">구글 계정으로 로그인</button>
+          <button type="button" class="button facebook">페이스북 계정으로 로그인</button>
+          <button type="button" class="button naver">네이버 계정으로 로그인</button>
+          <button type="button" class="button kakao">카카오톡 계정으로 로그인</button>
         </div>
       </div>
 
