@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <link rel="stylesheet" href="reset.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+  <style>
+    button {
+      border: none;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      overflow: visible;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+    }
+
+    body {
+      font-family: 'Spoqa Han Sans Neo';
+    }
+
+    a {
+      text-decoration: none;
+      color: initial;
+    }
+
+    .hidden {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+    }
+
+    article {
+      margin: 60px auto;
+      width: 520px;
+      height: 712px;
+      background: #FFFFFF;
+      border: 1px solid #C4C4C4;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+
+    .title {
+      border-bottom: 1px solid #C4C4C4;
+    }
+
+    h1 {
+      display: inline-block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 19px;
+      margin-left: 187px;
+      padding-bottom: 18px;
+    }
+
+    .button-close {
+      position: relative;
+      top: -673px;
+      right: -479px;
+      cursor: pointer;
+    }
+
+    .image-close {
+      width: 16px;
+      height: 16px;
+    }
+
+    .contents {
+      padding-top: 26px;
+      padding-left: 23px;
+      padding-right: 23px;
+    }
+
+    .text-welcome {
+      margin-bottom: 24px;
+    }
+
+    .typing.id, .typing.password {
+      display: block;
+      width: 472px;
+      height: 50px;
+      background: #FFFFFF;
+      border: 1px solid #C4C4C4;
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+
+    input[placeholder] {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-indent: 15px;
+      font-family: 'Spoqa Han Sans Neo';
+    }
+
+    .typing.id {
+      margin-bottom: 10px;
+    }
+
+    .label-checkbox {
+      display: inline-block;
+      height: 22px;
+      margin-top: 16px;
+      margin-left: 4px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      color: #767676;
+      cursor: pointer;
+    }
+
+    .label-checkbox::before {
+      display: inline-block;
+      content: "";
+      width: 22px;
+      height: 22px;
+      margin-right: 8px;
+      vertical-align: -5px;
+      background-image: url(/images/check-box1.png);
+    }
+
+    /* 웹 접근성을 위해 스페이스바로 체크할 수 있게 함 */
+    .input-checkbox:focus + .label-checkbox::before {
+      outline: 2px solid #c4c4c4;
+      outline-offset: 3px;
+      border-radius: 25%;
+    }
+
+    .input-checkbox:checked+.label-checkbox::before {
+      background-image: url(/images/check-box2.png);
+    }
+
+    .button-login {
+      display: block;
+      text-align: center;
+      line-height: 50px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 472px;
+      height: 50px;
+      background: #2F80ED;
+      border-radius: 5px;
+      font-family: 'Spoqa Han Sans Neo';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      color: #FFFFFF;
+    }
+
+    .join-or-detect {
+      display: block;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .join, .detect, .bar {
+      display: inline;
+      font-family: 'Spoqa Han Sans Neo';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #767676;
+    }
+
+    .bar {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    
+    .or {
+      display: flex;
+      flex-basis: 100%;
+      align-items: center;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 20px;
+      color: #767676;
+    }
+
+    .or::before { 
+      content: "";
+      flex-grow: 1;
+      margin-right: 13px;
+      background: #C4C4C4;
+      width: 210px;
+      height: 1px;
+    }
+
+    .or::after { 
+      content: "";
+      flex-grow: 1;
+      margin-left: 13px;
+      background: #C4C4C4;
+      width: 210px;
+      height: 1px;
+    }
+
+    .button {
+      width: 472px;
+    }
+
+    .button > button {
+      text-align: center;
+      width: 472px;
+      height: 50px;
+      background: #FFFFFF;
+      display: block;
+      font-family: 'Spoqa Han Sans Neo';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 50px;
+      color: #767676;
+      margin-bottom: 10px;
+    }
+
+    .button > img {
+      width: 28px;
+      height: 28px;
+      top: 0;
+      left: 0;
+    }
+
+    .button.google {
+      border: 1px solid #767676;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-image: url(/images/google-logo.png);
+      background-repeat: no-repeat;
+      background-size: 28px 28px;
+      background-position: left 11px bottom 10px;
+    }
+
+    .button.facebook {
+      border: 1px solid #2D9CDB;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-image: url(/images/facebook-logo.png);
+      background-repeat: no-repeat;
+      background-size: 28px 28px;
+      background-position: left 11px bottom 10px;
+    }
+
+    .button.naver {
+      border: 1px solid #00BF18;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-image: url(/images/naver-logo.png);
+      background-repeat: no-repeat;
+      background-size: 28px 28px;
+      background-position: left 11px bottom 10px;
+    }
+
+    .button.kakao {
+      border: 1px solid #F2C94C;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-image: url(/images/kakao-logo.png);
+      background-repeat: no-repeat;
+      background-size: 28px 28px;
+      background-position: left 11px bottom 10px;
+    }
+  </style>
+</head>
+<body>
+  <article>
+      <div class="title">
+        <h1>로그인 또는 회원가입</h1>
+      </div>
+
+      <div class="contents">
+        <p class="text-welcome">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+        <div class="typing">
+          <label for="id" class="hidden">아이디</label>
+          <input class="typing id" type="text" placeholder="아이디" id="id">
+          <label for="password" class="hidden">비밀번호</label>
+          <input class="typing password" type="password" placeholder="비밀번호" id="password">
+        </div>
+
+
+          <input type="checkbox" id="checkbox" class="input-checkbox hidden" name="">
+          <label for="checkbox" class="label-checkbox">로그인 상태 유지</label>
+
+        <a class="button-login" href="#none">로그인</a>
+        
+        <div class="join-or-detect">
+          <a class="join" href="#none">회원가입</a>
+          <p class="bar">|</p>
+          <a class="detect" href="#none">아이디/비밀번호 찾기</a>
+        </div>
+
+        <div class="line-or">
+          <p class="or">또는</p>
+        </div>
+
+        <div class="button">
+          <button class="button google">구글 계정으로 로그인</button>
+          <button class="button facebook">페이스북 계정으로 로그인</button>
+          <button class="button naver">네이버 계정으로 로그인</button>
+          <button class="button kakao">카카오톡 계정으로 로그인</button>
+        </div>
+      </div>
+
+  <!--스크린리더 문맥상 맨 마지막에 나와야 자연스럽게 때문에 배치하였습니다-->
+  <button type="button" class="button-close"><img class="image-close" src="/images/close.png" alt="창 닫기"></button>
+
+  </article>
+</body>
+</html>
